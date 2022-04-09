@@ -4,10 +4,33 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+  } from 'react-router-dom';
+
+  import Home from './Home.js';
+  import Trends from './Trends.js';
+  import About from './About.js';
+  import NoMatch from './NoMatch.js';
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+        <Routes>
+            <Route path='*' element={<NoMatch />} />
+            <Route path='/' element={<App />}>
+                <Route index element={<Home />} />
+                <Route path='/trends' element={<Trends/>}/>
+                <Route path='/about' element={<About />} />
+            </Route>
+            <Route path='/home' element={<App />}>
+                <Route index element={<Home />} />
+            </Route>
+            
+        </Routes>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
