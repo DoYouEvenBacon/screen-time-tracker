@@ -20,12 +20,12 @@ ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path='*' element={<NoMatch />} />
-            <Route path='/' element={<App />}>
+            <Route path='/screen-time-tracker' element={<App />}>
                 <Route index element={<Home />} />
-                <Route path='/trends' element={<Trends/>}/>
-                <Route path='/about' element={<About />} />
+                <Route path='/screen-time-tracker/trends' element={<Trends/>}/>
+                <Route path='/screen-time-tracker/about' element={<About />} />
             </Route>
-            <Route path='/home' element={<App />}>
+            <Route path='/screen-time-tracker/home' element={<App />}>
                 <Route index element={<Home />} />
             </Route>
             
