@@ -62,7 +62,7 @@ function NavBar() {
                 {mainDrawerItems.map((text, index) => (
                     <NavLink 
                         key={`mainNavlink${index}`}
-                        to={`/${text.toLowerCase()}`}
+                        to={`/screen-time-tracker/${text.toLowerCase()}`}
                         /*activeStyle={{
                             fontWeight: "bold",
                             color: "red"
@@ -83,7 +83,7 @@ function NavBar() {
                 {miscDrawerItems.map((text, index) => (
                     <NavLink 
                         key={`miscNavlink${index}`}
-                        to={`/${text.toLowerCase()}`}
+                        to={`/screen-time-tracker/${text.toLowerCase()}`}
                         activeStyle={{
                             fontWeight: "bold",
                             color: "red"
