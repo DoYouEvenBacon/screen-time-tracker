@@ -1,6 +1,7 @@
 {
   "name": "screen-time-tracker",
   "version": "0.1.0",
+  "homepage": "https://doyouevenbacon.github.io/screen-time-tracker",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
