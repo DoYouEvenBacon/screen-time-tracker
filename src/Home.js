@@ -30,7 +30,7 @@ function Home() {
     const [trackingTimer, setTrackingTimer] = useState(0); //stored as seconds
     const [duration, setDuration] = useState('60'); //minutes
     const [currentTime, setCurrentTime] = useState('00:00:00 AM');
-    //const [endTime, setEndTime] = useState('00:00:00 AM');
+    const [endTime, setEndTime] = useState('00:00:00 AM');
     const [backdropOpen, setBackdropOpen] = useState(false);
 
     const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -40,24 +40,24 @@ function Home() {
 
     useEffect(() => {
         setTrackingTimer(parseInt(duration) * 60);
-        /*let end = new Date();
+        let end = new Date();
         end.setMinutes(end.getMinutes() + parseInt(duration));
-        setEndTime(end.toLocaleTimeString());*/
+        setEndTime(end.toLocaleTimeString());
 
-        const timer = setInterval(() => {
+        const timer1 = setInterval(() => {
             setCurrentTime(new Date().toLocaleTimeString());
-            console.log(tracking);
-            /*if(!tracking){
+            if(tracking === false){
                 let end = new Date();
                 end.setMinutes(end.getMinutes() + parseInt(duration));
                 setEndTime(end.toLocaleTimeString());
-            }*/
-        }, 250);
+            }
+        }, 1000);
 
         return () => {
-            clearInterval(timer);
+            clearInterval(timer1);
+            
         };
-    }, []);
+    }, [tracking, endTime]);
 
     useEffect(() => {
         if(tracking){
@@ -75,9 +75,6 @@ function Home() {
         if(parseInt(duration) > 0){
             setTrackingTimer(parseInt(duration) * 60); //duration is in minutes, trackingTimer is in seconds
             setTracking(!tracking);
-            //let end = new Date();
-            //end.setMinutes(end.getMinutes() + parseInt(duration));
-            //setEndTime(end.toLocaleTimeString());
 
             if(parseInt(duration) === 69 && !tracking){
                 setAlertSeverity('info');
@@ -116,7 +113,7 @@ function Home() {
                 <Grid container item xs={8} spacing={1}>
                     <Grid id={'clockGrid'} item xs={12}>
                         <Item>
-                            <CircleProgress currentTime={currentTime} duration={duration} trackingTimer={trackingTimer}/>
+                            <CircleProgress currentTime={currentTime} endTime={endTime} duration={duration} trackingTimer={trackingTimer}/>
                         </Item>
                     </Grid>
                     <Grid item xs={12}>

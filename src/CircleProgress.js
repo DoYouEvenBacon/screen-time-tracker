@@ -38,19 +38,19 @@ function CircleProgress(props) {
                         variant='h5'
                         component='div'
                         color='text.primary'>
-                            {`${props.currentTime}`}
+                            {props.currentTime}
                     </Typography>
                     <Typography
                         variant='h6'
                         component='div'
                         color='text.secondary'>
-                            {`${remainingTime}`}
+                            {remainingTime}
                     </Typography>
                     <Typography
                         variant='h6'
                         component='div'
                         color='text.secondary'>
-                            {``}
+                            {props.endTime}
                     </Typography>
                 </Stack>
                 
